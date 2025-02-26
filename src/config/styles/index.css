@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+@theme {
+    --color-purple-mountain-majesty: #9475A2;
+    --color-alabaster: #EFEEE3;
+    --color-green-blue: #126CAE;
+    --color-philippine-silver: #B6B6B6;
+}
