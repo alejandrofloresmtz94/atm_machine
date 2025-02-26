@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+      "baseUrl": "src",
+      "paths": {
+        "@common/*": [
+          "common/*",
+          "common"
+        ],
+        "@config/*": [
+          "config/*",
+          "config"
+        ],
+        "@hooks/*": [
+          "hooks/*",
+          "hooks"
+        ],
+        "@states/*": [
+          "states/*",
+          "states"
+        ],
+        "@ui/*": [
+          "ui/*",
+          "ui"
+        ]
+      }
+    }
+  }
