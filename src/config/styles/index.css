@@ -1,8 +1,20 @@
 @import "tailwindcss";
 
+@layer base {
+    @font-face {
+        font-family: PressStart2P;
+        font-weight: 400;
+        src: url(/src/common/assets/fonts/PressStart2P-Regular.ttf) format("truetype");
+    }
+}
+
 @theme {
+    --font-main: "PressStart2P";
     --color-purple-mountain-majesty: #9475A2;
     --color-alabaster: #EFEEE3;
     --color-green-blue: #126CAE;
     --color-philippine-silver: #B6B6B6;
+    --color-iceberg: #73ABCF;
+    --color-timberwolf :#DDDDD0;
+    --color-custom-gray: #B9B9B9;
 }

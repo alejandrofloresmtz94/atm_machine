@@ -1,10 +1,12 @@
-import MainView from './ui/views/MainView'
+import ATM from './ui/views/ATM'
 import './App.css'
 
 function App() {
 
   return (
-    <MainView />
+    <div className="w-screen h-screen bg-purple-mountain-majesty flex flex-col justify-end items-center">
+      <ATM />
+    </div>
   )
 }
 
