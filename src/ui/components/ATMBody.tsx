@@ -8,12 +8,12 @@ import Position from "../../common/enums/position";
 
 const ATMBody: React.FC = () => {
     return (
-        <div className="bg-alabaster w-[26%] h-8/12 flex flex-col relative">
+        <div className="bg-alabaster w-10/12 sm:w-9/12 md:w-7/12 lg:w-5/12 xl:w-4/12 h-8/12 flex flex-col relative">
             <div className="h-3 w-full bg-philippine-silver" />
             <AcceptedCardsBar />
             <div className="flex flex-row justify-center">
                 <ButtonsColumn position={Position.Left} />
-                <div className="flex flex-col">
+                <div className="flex flex-col w-8/12">
                     <Screen />
                     <img src={systems} alt="systems" className="h-[6px] w-[54px] aspect-auto self-end mt-2" />
                 </div>

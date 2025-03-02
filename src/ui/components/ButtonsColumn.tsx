@@ -12,7 +12,7 @@ const ButtonsColumn: React.FC<ButtonsColumnProps> = ({ position }) => {
     }, [selectedScreen, position]);
 
     return (
-        <div className="flex flex-col-reverse justify-start gap-10 grow pb-5 buttons-column">
+        <div className="flex flex-col-reverse justify-start gap-10 grow pb-5 buttons-column w-2/12">
             {[...Array(4)].map((_, index) => (
                 <Button key={`${position}-${index}`} position={position} action={columnButtons.at(index)?.action} />
             ))}
