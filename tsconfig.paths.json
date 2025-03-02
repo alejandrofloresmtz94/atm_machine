@@ -14,9 +14,9 @@
           "hooks/*",
           "hooks"
         ],
-        "@states/*": [
-          "states/*",
-          "states"
+        "@store/*": [
+          "store/*",
+          "store"
         ],
         "@ui/*": [
           "ui/*",
