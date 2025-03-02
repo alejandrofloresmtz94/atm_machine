@@ -20,3 +20,71 @@
     --color-philippine-gray: #909090;
     --color-light-gray: #D4D4CE;
 }
+
+div#acceptedCards > div.card {
+    background-image: url(/src/common/assets/images/creditcard_sprite.png);
+
+    &.unselected {
+        &.star {
+            background-position: 0 40px;
+        }
+        &.pulse {
+            background-position: 330px 40px;
+        }
+        &.maestro {
+            background-position: 240px 38px;
+        }
+        &.mastercard {
+            background-position: 175px 36px;
+        }
+        &.plus {
+            background-position: 110px 35px;
+        }
+        &.visa {
+            background-position: 48px 35px;
+        }    
+    }
+
+    &.selected {
+        &.star {
+            background-position: 0 74px;
+        }
+        &.pulse {
+            background-position: 330px 70px;
+        }
+        &.maestro {
+            background-position: 240px 68px;
+        }
+        &.mastercard {
+            background-position: 175px 68px;
+        }
+        &.plus {
+            background-position: 110px 72px;
+        }
+        &.visa {
+            background-position: 48px 70px;
+        }
+    }
+}
+
+div.buttons-column > .button-container {
+    &.left {
+        justify-content: end;
+        & > button {
+            order: 0;
+        }
+        & > div {
+            order: 1;
+        }
+    }
+
+    &.right {
+        justify-content: start;
+        & > button {
+            order: 1;
+        }
+        & > div {
+            order: 0;
+        }
+    }
+}
