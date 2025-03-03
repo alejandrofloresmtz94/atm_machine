@@ -6,10 +6,12 @@ import User from "../common/interfaces/Users.interface";
 
 const useGlobalStore = create<GlobalStore>((set) => ({
   selectedScreen: ScreenType.Welcome,
-  setSelectedScreen: (selectedScreen: ScreenType) => set({ selectedScreen }),
+  setSelectedScreen: (selectedScreen: ScreenType) =>
+    set({ selectedScreen, userInput: "" }),
   userInput: "",
   setUserInput: (userInput: string) => set({ userInput }),
   usersList: Users,
+  resetUserList: () => set({ usersList: Users }),
   currentUser: null,
   logIn: () => {
     set((state) => {

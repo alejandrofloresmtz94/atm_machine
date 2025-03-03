@@ -19,11 +19,11 @@ const ScreenConfiguration: ScreenConfigurationInterface = {
     buttons: {
       left: [],
       right: [
+        { label: "Enter", action: ButtonActions.logIn },
         {
           label: "Cancel",
           action: ButtonActions.logOut,
         },
-        { label: "Enter", action: ButtonActions.logIn },
       ],
     },
   },

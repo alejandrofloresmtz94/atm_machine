@@ -88,3 +88,22 @@ div.buttons-column > .button-container {
         }
     }
 }
+
+div.text-button {
+    &.left {
+        & > div {
+            order: 0;
+        }
+        & > span {
+            order: 1;
+        }
+    }
+    &.right {
+        & > div {
+            order: 1;
+        }
+        & > span {
+            order: 0;
+        }
+    }
+}

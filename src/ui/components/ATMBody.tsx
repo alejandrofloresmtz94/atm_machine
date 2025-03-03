@@ -19,7 +19,7 @@ const ATMBody: React.FC = () => {
                 </div>
                 <ButtonsColumn position={Position.Right} />
             </div>
-            <img src={sticker_graf} alt="sticker and graffiti" className="absolute bottom-1/4 left-1/12" />
+            <img src={sticker_graf} alt="sticker and graffiti" className="w-4/12 absolute bottom-2/12 left-1/12" />
         </div>
     );
 };

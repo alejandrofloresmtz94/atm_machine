@@ -7,6 +7,7 @@ interface GlobalStore {
   userInput: string;
   setUserInput: (userInput: string) => void;
   usersList: User[];
+  resetUserList: () => void;
   currentUser: User | null;
   logIn: () => void;
   logOut: () => void;
