@@ -87,6 +87,16 @@ Using 2560 x 1440 Resolution Screen
 
 5. Open a pull request.
 
+## Testing
+
+For testing, you can use different users with the following PIN's:
+1234
+5678
+9101
+1121
+3141
+5161
+
 ## License
 
 This project is licensed under the MIT License.
