@@ -9,8 +9,10 @@ interface GlobalStore {
   usersList: User[];
   resetUserList: () => void;
   currentUser: User | null;
+  currentError: string | null;
   logIn: () => void;
   logOut: () => void;
+  goToMain: () => void;
   logOutAndEnterPin: () => void;
   goToWithdraw: () => void;
   goToDeposit: () => void;
@@ -19,9 +21,8 @@ interface GlobalStore {
   goToVerify: () => void;
   goToSuccess: () => void;
   goToLoginError: () => void;
-  goToBalanceError: () => void;
-  goToDepositError: () => void;
-  goToWithdrawError: () => void;
+  goToError: () => void;
+  withdraw: (payload: { [key: string]: never }) => void;
 }
 
 export default GlobalStore;

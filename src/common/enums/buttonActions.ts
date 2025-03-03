@@ -2,6 +2,7 @@ enum ButtonActions {
   logIn = "logIn",
   logOut = "logOut",
   logOutAndEnterPin = "logOutAndEnterPin",
+  goToMain = "goToMain",
   goToWithdraw = "goToWithdraw",
   goToDeposit = "goToDeposit",
   goToBalance = "goToBalance",
@@ -9,9 +10,7 @@ enum ButtonActions {
   goToVerify = "goToVerify",
   goToSuccess = "goToSuccess",
   goToLoginError = "goToLoginError",
-  goToBalanceError = "goToBalanceError",
-  goToDepositError = "goToDepositError",
-  goToWithdrawError = "goToWithdrawError",
+  goToError = "goToError",
 }
 
 export default ButtonActions;

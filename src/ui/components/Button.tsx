@@ -1,12 +1,19 @@
 import React, { useCallback } from "react";
 import ButtonProps from "../../common/interfaces/Button.interface";
 import useGlobalStore from "../../store/globalStore";
+import ButtonActionsWithPayload from "../../common/enums/buttonActionsWithPayload";
 
-const Button: React.FC<ButtonProps> = ({ position, action }) => {
+const Button: React.FC<ButtonProps> = ({ position, action, payload }) => {
     const onClickButton = useCallback(() => {
-        if (action)
-            useGlobalStore.getState()[action]();
-    }, [action]);
+        if (!action)
+            return;
+
+        if (action in ButtonActionsWithPayload && payload) {
+            useGlobalStore.getState()[action](payload);
+        } else {
+            useGlobalStore.getState()[action]({});
+        }
+    }, [action, payload]);
 
     return (
         <div className={`w-full h-auto flex flex-row items-center button-container ${position} ${action}`}>

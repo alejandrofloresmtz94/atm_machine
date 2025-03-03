@@ -1,5 +1,6 @@
 import ScreenConfigurationInterface from "../interfaces/ScreenConfiguration.interface";
 import ButtonActions from "../enums/buttonActions";
+import ButtonActionsWithPayload from "../enums/buttonActionsWithPayload";
 
 const ScreenConfiguration: ScreenConfigurationInterface = {
   welcome: {
@@ -28,7 +29,7 @@ const ScreenConfiguration: ScreenConfigurationInterface = {
     },
   },
   main: {
-    title: "Hi, {name}! please make a choice...",
+    title: "Hi {name}!\nplease make a choice...",
     buttons: {
       left: [
         {
@@ -57,10 +58,15 @@ const ScreenConfiguration: ScreenConfigurationInterface = {
     },
   },
   balance: {
-    title: "Your balance is {balance}",
+    title: "Your balance is:\n{balance}",
     buttons: {
       left: [],
-      right: [],
+      right: [
+        {
+          label: "Return to main menu",
+          action: ButtonActions.goToMain,
+        },
+      ],
     },
   },
   deposit: {
@@ -71,10 +77,48 @@ const ScreenConfiguration: ScreenConfigurationInterface = {
     },
   },
   withdraw: {
-    title: "Please select the amount you want to withdraw",
+    title: "Please select the amount",
     buttons: {
-      left: [],
-      right: [],
+      left: [
+        {
+          label: "$20",
+          action: ButtonActionsWithPayload.withdraw,
+          payload: { amount: 20 },
+        },
+        {
+          label: "$10",
+          action: ButtonActionsWithPayload.withdraw,
+          payload: { amount: 10 },
+        },
+        {
+          label: "$5",
+          action: ButtonActionsWithPayload.withdraw,
+          payload: { amount: 5 },
+        },
+        {
+          label: "$2",
+          action: ButtonActionsWithPayload.withdraw,
+          payload: { amount: 2 },
+        },
+      ],
+      right: [
+        {
+          label: "Custom",
+          action: ButtonActions.goToCustomInput,
+          payload: { action: ButtonActionsWithPayload.withdraw },
+        },
+        { label: "Cancel", action: ButtonActions.goToMain },
+        {
+          label: "$100",
+          action: ButtonActionsWithPayload.withdraw,
+          payload: { amount: 100 },
+        },
+        {
+          label: "$50",
+          action: ButtonActionsWithPayload.withdraw,
+          payload: { amount: 50 },
+        },
+      ],
     },
   },
   customInput: {
@@ -95,35 +139,37 @@ const ScreenConfiguration: ScreenConfigurationInterface = {
     title: "Your transaction was successful!",
     buttons: {
       left: [],
-      right: [],
+      right: [
+        {
+          label: "Return to main menu",
+          action: ButtonActions.goToMain,
+        },
+      ],
     },
   },
   loginError: {
-    title: "An error occurred, please try again",
+    title: "User not found, please try again",
     buttons: {
       left: [],
-      right: [],
+      right: [
+        { label: "Re-Enter PIN", action: ButtonActions.logOutAndEnterPin },
+        {
+          label: "Cancel",
+          action: ButtonActions.logOut,
+        },
+      ],
     },
   },
-  balanceError: {
-    title: "An error occurred, please try again",
+  generalError: {
+    title: "{errorMsg}",
     buttons: {
       left: [],
-      right: [],
-    },
-  },
-  depositError: {
-    title: "An error occurred, please try again",
-    buttons: {
-      left: [],
-      right: [],
-    },
-  },
-  withdrawError: {
-    title: "An error occurred, please try again",
-    buttons: {
-      left: [],
-      right: [],
+      right: [
+        {
+          label: "Return to main menu",
+          action: ButtonActions.goToMain,
+        },
+      ],
     },
   },
 };

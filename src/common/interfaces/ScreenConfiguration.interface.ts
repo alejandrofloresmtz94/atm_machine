@@ -1,8 +1,10 @@
 import ButtonActions from "../enums/buttonActions";
+import ButtonActionsWithPayload from "../enums/buttonActionsWithPayload";
 
 interface Button {
   label: string;
-  action: ButtonActions;
+  action: ButtonActions | ButtonActionsWithPayload;
+  payload?: { [key: string]: unknown };
 }
 
 interface ScreenConfigurationButtons {
@@ -51,15 +53,7 @@ interface ScreenConfiguration {
     title: string;
     buttons: ScreenConfigurationButtons;
   };
-  balanceError: {
-    title: string;
-    buttons: ScreenConfigurationButtons;
-  };
-  depositError: {
-    title: string;
-    buttons: ScreenConfigurationButtons;
-  };
-  withdrawError: {
+  generalError: {
     title: string;
     buttons: ScreenConfigurationButtons;
   };

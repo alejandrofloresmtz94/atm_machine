@@ -6,7 +6,7 @@ const Users: User[] = [
     id: 1,
     name: "John Doe",
     pin: "1234",
-    balance: 1000,
+    balance: 50,
     cardType: CardType.Maestro,
   },
   {

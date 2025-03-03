@@ -1,7 +1,7 @@
 import ScreenType from "../enums/screenType";
 
 export const maskString = (string: string, screenType: ScreenType) => {
-  if (screenType === ScreenType.Login) {
+  if (screenType === ScreenType.Login || screenType === ScreenType.LoginError) {
     return string.replace(/./g, "*");
   } else {
     const number = parseFloat(string);

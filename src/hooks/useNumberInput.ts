@@ -7,6 +7,9 @@ const useNumberInput = (): string => {
     if (event.key >= "0" && event.key <= "9") {
       setNumber((prev) => prev + event.key);
     }
+    if (event.key === "Delete" || event.key === "Backspace") {
+      setNumber((prev) => prev.slice(0, -1));
+    }
   };
 
   useEffect(() => {

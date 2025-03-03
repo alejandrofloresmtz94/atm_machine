@@ -13,9 +13,12 @@ const ButtonsColumn: React.FC<ButtonsColumnProps> = ({ position }) => {
 
     return (
         <div className="flex flex-col-reverse justify-start gap-10 grow buttons-column w-2/12 pb-10">
-            {[...Array(4)].map((_, index) => (
-                <Button key={`${position}-${index}`} position={position} action={columnButtons.at(index)?.action} />
-            ))}
+            {[...Array(4)].map((_, index) => {
+                const btnData = columnButtons.at(index);
+                return (
+                    <Button key={`${position}-${index}`} position={position} action={btnData?.action} payload={btnData?.payload} />
+                )
+            })}
         </div>
     )
 };

@@ -9,9 +9,7 @@ enum ScreenType {
   Verify = "verify",
   Success = "success",
   LoginError = "loginError",
-  BalanceError = "balanceError",
-  DepositError = "depositError",
-  WithdrawError = "withdrawError",
+  GeneralError = "generalError",
 }
 
 export default ScreenType;
