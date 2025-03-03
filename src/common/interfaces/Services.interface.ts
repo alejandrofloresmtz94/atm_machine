@@ -5,6 +5,7 @@ interface ServicesInterface {
   userLogin: (pin: string) => User | undefined;
   userLogout: () => boolean;
   withdraw: (userId: number, amount: number) => ServiceResponse;
+  deposit: (userId: number, amount: number) => ServiceResponse;
 }
 
 export default ServicesInterface;

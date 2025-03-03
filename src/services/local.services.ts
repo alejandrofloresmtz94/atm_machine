@@ -36,6 +36,23 @@ class Services implements ServicesInterface {
       data: { returnedUser },
     };
   }
+
+  deposit(userId: number, amount: number): ServiceResponse {
+    const usersList = useGlobalStore.getState().usersList;
+    const user = usersList.find((user: User) => user.id === userId);
+    if (!user) {
+      return {
+        status: ResponseStatus.Error,
+        errorMessage: "User Not Found",
+      };
+    }
+    const userAmount = user.balance + amount;
+    const returnedUser = { ...user, balance: userAmount } as User;
+    return {
+      status: ResponseStatus.Ok,
+      data: { returnedUser },
+    };
+  }
 }
 
 const instance = new Services();

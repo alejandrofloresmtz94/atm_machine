@@ -11,6 +11,7 @@ const Screen: React.FC = () => {
 
     const selectedScreen = useGlobalStore((state) => state.selectedScreen);
     const currentUser = useGlobalStore((state) => state.currentUser);
+    const currentAction = useGlobalStore((state) => state.currentAction)
     const currentError = useGlobalStore((state) => state.currentError);
 
     const validInputScreens = useMemo(() => {
@@ -28,22 +29,25 @@ const Screen: React.FC = () => {
                 return originalTitle.replace("{name}", currentUser?.name || "");
             case ScreenType.Balance: {
                 const currentBalance = currentUser?.balance;
-                if (!currentBalance) return originalTitle;
+                if (currentBalance === undefined) return originalTitle;
                 const maskedBalance = maskString(currentBalance.toString(), ScreenType.Balance);
                 return originalTitle.replace("{balance}", maskedBalance || "");
             }
             case ScreenType.GeneralError: {
                 if (currentError) {
-                    console.log(currentError)
                     return originalTitle.replace("{errorMsg}", currentError);
                 } else {
                     return originalTitle;
                 }
             }
+            case ScreenType.CustomInput: {
+                if (!currentAction) return originalTitle
+                return originalTitle.replace("{action}", currentAction)
+            }
             default:
                 return originalTitle
         }
-    }, [selectedScreen, screenCopys, currentUser, currentError]);
+    }, [selectedScreen, screenCopys, currentUser, currentError, currentAction]);
 
     return (
         <div className="h-[500px] w-full bg-iceberg border-8 border-timberwolf text-white font-main flex flex-col justify-between py-5">

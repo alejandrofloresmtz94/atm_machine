@@ -5,8 +5,9 @@ import Users from "../common/constants/users";
 import Services from "../services/local.services";
 import ResponseStatus from "../common/enums/responseStatus";
 import User from "../common/interfaces/Users.interface";
+import ButtonActionsWithPayload from "../common/enums/buttonActionsWithPayload";
 
-const useGlobalStore = create<GlobalStore>((set) => ({
+const useGlobalStore = create<GlobalStore>((set, get) => ({
   selectedScreen: ScreenType.Welcome,
   setSelectedScreen: (selectedScreen: ScreenType) =>
     set({ selectedScreen, userInput: "" }),
@@ -16,6 +17,7 @@ const useGlobalStore = create<GlobalStore>((set) => ({
   resetUserList: () => set({ usersList: Users }),
   currentUser: null,
   currentError: null,
+  currentAction: null,
   logIn: () => {
     set((state) => {
       const user = Services.userLogin(state.userInput);
@@ -81,16 +83,14 @@ const useGlobalStore = create<GlobalStore>((set) => ({
       userInput: "",
       selectedScreen: ScreenType.Balance,
     }),
-  goToCustomInput: () =>
+  goToCustomInput: (payload: { [key: string]: unknown }) => {
+    const currAction = payload.action as ButtonActionsWithPayload;
     set({
       userInput: "",
       selectedScreen: ScreenType.CustomInput,
-    }),
-  goToVerify: () =>
-    set({
-      userInput: "",
-      selectedScreen: ScreenType.Verify,
-    }),
+      currentAction: currAction,
+    });
+  },
   goToSuccess: () =>
     set({
       userInput: "",
@@ -106,10 +106,13 @@ const useGlobalStore = create<GlobalStore>((set) => ({
       userInput: "",
       selectedScreen: ScreenType.GeneralError,
     }),
-  withdraw: (payload: { [key: string]: never }) => {
+  withdraw: (payload: { [key: string]: unknown }) => {
     set((state) => {
       if (!state.currentUser) return state;
-      const response = Services.withdraw(state.currentUser.id, payload.amount);
+      const response = Services.withdraw(
+        state.currentUser.id,
+        payload.amount as number
+      );
       if (response.status === ResponseStatus.Ok && response.data) {
         const returnedUser = response.data.returnedUser as User;
         const newUsersList = state.usersList.map((user: User) => {
@@ -130,6 +133,43 @@ const useGlobalStore = create<GlobalStore>((set) => ({
         };
       }
     });
+  },
+  deposit: (payload: { [key: string]: unknown }) => {
+    set((state) => {
+      if (!state.currentUser) return state;
+      const response = Services.deposit(
+        state.currentUser.id,
+        payload.amount as number
+      );
+      if (response.status === ResponseStatus.Ok && response.data) {
+        const returnedUser = response.data.returnedUser as User;
+        const newUsersList = state.usersList.map((user: User) => {
+          return returnedUser.id === user.id ? returnedUser : user;
+        });
+        return {
+          ...state,
+          usersList: newUsersList,
+          currentError: "",
+          selectedScreen: ScreenType.Success,
+          currentUser: returnedUser,
+        };
+      } else {
+        return {
+          ...state,
+          currentError: response.errorMessage,
+          selectedScreen: ScreenType.GeneralError,
+        };
+      }
+    });
+  },
+  runActualAction: () => {
+    console.log(get().currentAction, get().userInput);
+    const amountNumber = Number.parseFloat(get().userInput);
+    if (get().currentAction === ButtonActionsWithPayload.deposit) {
+      get().deposit({ amount: amountNumber });
+    } else if (get().currentAction === ButtonActionsWithPayload.withdraw) {
+      get().withdraw({ amount: amountNumber });
+    }
   },
 }));
 

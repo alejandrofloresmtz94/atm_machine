@@ -70,10 +70,48 @@ const ScreenConfiguration: ScreenConfigurationInterface = {
     },
   },
   deposit: {
-    title: "Please select the amount you want to deposit",
+    title: "Please select the amount",
     buttons: {
-      left: [],
-      right: [],
+      left: [
+        {
+          label: "$20",
+          action: ButtonActionsWithPayload.deposit,
+          payload: { amount: 20 },
+        },
+        {
+          label: "$10",
+          action: ButtonActionsWithPayload.deposit,
+          payload: { amount: 10 },
+        },
+        {
+          label: "$5",
+          action: ButtonActionsWithPayload.deposit,
+          payload: { amount: 5 },
+        },
+        {
+          label: "$2",
+          action: ButtonActionsWithPayload.deposit,
+          payload: { amount: 2 },
+        },
+      ],
+      right: [
+        {
+          label: "Custom",
+          action: ButtonActionsWithPayload.goToCustomInput,
+          payload: { action: ButtonActionsWithPayload.deposit },
+        },
+        { label: "Cancel", action: ButtonActions.goToMain },
+        {
+          label: "$100",
+          action: ButtonActionsWithPayload.deposit,
+          payload: { amount: 100 },
+        },
+        {
+          label: "$50",
+          action: ButtonActionsWithPayload.deposit,
+          payload: { amount: 50 },
+        },
+      ],
     },
   },
   withdraw: {
@@ -104,7 +142,7 @@ const ScreenConfiguration: ScreenConfigurationInterface = {
       right: [
         {
           label: "Custom",
-          action: ButtonActions.goToCustomInput,
+          action: ButtonActionsWithPayload.goToCustomInput,
           payload: { action: ButtonActionsWithPayload.withdraw },
         },
         { label: "Cancel", action: ButtonActions.goToMain },
@@ -122,17 +160,13 @@ const ScreenConfiguration: ScreenConfigurationInterface = {
     },
   },
   customInput: {
-    title: "Please enter the amount",
+    title: "Please enter the amount you want to {action}",
     buttons: {
       left: [],
-      right: [],
-    },
-  },
-  verify: {
-    title: "Please verify the amount",
-    buttons: {
-      left: [],
-      right: [],
+      right: [
+        { label: "Enter", action: ButtonActions.runActualAction },
+        { label: "Cancel", action: ButtonActions.goToMain },
+      ],
     },
   },
   success: {

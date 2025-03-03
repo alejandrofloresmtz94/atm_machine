@@ -1,3 +1,4 @@
+import ButtonActionsWithPayload from "../enums/buttonActionsWithPayload";
 import ScreenType from "../enums/screenType";
 import User from "./Users.interface";
 
@@ -10,6 +11,7 @@ interface GlobalStore {
   resetUserList: () => void;
   currentUser: User | null;
   currentError: string | null;
+  currentAction: ButtonActionsWithPayload | null;
   logIn: () => void;
   logOut: () => void;
   goToMain: () => void;
@@ -17,12 +19,13 @@ interface GlobalStore {
   goToWithdraw: () => void;
   goToDeposit: () => void;
   goToBalance: () => void;
-  goToCustomInput: () => void;
-  goToVerify: () => void;
+  goToCustomInput: (payload: { [key: string]: unknown }) => void;
   goToSuccess: () => void;
   goToLoginError: () => void;
   goToError: () => void;
-  withdraw: (payload: { [key: string]: never }) => void;
+  withdraw: (payload: { [key: string]: unknown }) => void;
+  deposit: (payload: { [key: string]: unknown }) => void;
+  runActualAction: () => void;
 }
 
 export default GlobalStore;

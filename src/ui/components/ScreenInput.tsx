@@ -19,7 +19,7 @@ const ScreenInput: React.FC<ScreenInputProps> = ({ selectedScreen }) => {
 
     return (
         <span className="text-center text-sm w-full">
-            {maskedNumber}
+            {number.length > 0 ? maskedNumber : null}
         </span>
     )
 };

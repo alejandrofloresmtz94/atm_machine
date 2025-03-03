@@ -41,10 +41,6 @@ interface ScreenConfiguration {
     title: string;
     buttons: ScreenConfigurationButtons;
   };
-  verify: {
-    title: string;
-    buttons: ScreenConfigurationButtons;
-  };
   success: {
     title: string;
     buttons: ScreenConfigurationButtons;

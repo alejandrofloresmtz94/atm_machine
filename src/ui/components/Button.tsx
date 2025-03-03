@@ -5,8 +5,7 @@ import ButtonActionsWithPayload from "../../common/enums/buttonActionsWithPayloa
 
 const Button: React.FC<ButtonProps> = ({ position, action, payload }) => {
     const onClickButton = useCallback(() => {
-        if (!action)
-            return;
+        if (!action) return;
 
         if (action in ButtonActionsWithPayload && payload) {
             useGlobalStore.getState()[action](payload);

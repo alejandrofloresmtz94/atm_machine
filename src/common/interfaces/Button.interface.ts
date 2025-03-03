@@ -5,7 +5,7 @@ import Position from "../enums/position";
 interface ButtonProps {
   position: Position;
   action: ButtonActions | ButtonActionsWithPayload | undefined;
-  payload?: { [key: string]: never };
+  payload?: { [key: string]: unknown };
 }
 
 export default ButtonProps;
