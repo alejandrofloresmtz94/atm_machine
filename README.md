@@ -4,10 +4,20 @@
 
 This project simulates an Automated Teller Machine (ATM) system. It allows users to perform various banking operations such as checking account balance, withdrawing cash, and depositing funds.
 
-Tested in:
+## Tested Versions
+
+Node Version: 20.18.1
+
+Npm Version: 11.1.0
+
+Pnpm Version: 10.5.0
+
+Browser:
 
 - Google Chrome (v133.0.6943.142 Official Build 64 bits)
 - Microsoft Edge (v133.0.3065.92 Official Build 64 bits)
+
+Screen:
 
 Using 2560 x 1440 Resolution Screen
 
