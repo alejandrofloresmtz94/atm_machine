@@ -16,7 +16,7 @@ const ScreenConfiguration: ScreenConfigurationInterface = {
     },
   },
   login: {
-    title: "Please enter your PIN",
+    title: "Please enter your PIN and click the enter button",
     buttons: {
       left: [],
       right: [
@@ -160,7 +160,7 @@ const ScreenConfiguration: ScreenConfigurationInterface = {
     },
   },
   customInput: {
-    title: "Please enter the amount you want to {action}",
+    title: "Please enter the amount you want to {action} and click enter",
     buttons: {
       left: [],
       right: [

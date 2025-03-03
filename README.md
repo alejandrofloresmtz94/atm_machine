@@ -1,50 +1,86 @@
-# React + TypeScript + Vite
+# ATM Machine Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+This project simulates an Automated Teller Machine (ATM) system. It allows users to perform various banking operations such as checking account balance, withdrawing cash, and depositing funds.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Tested in:
 
-## Expanding the ESLint configuration
+- Google Chrome (v133.0.6943.142 Official Build 64 bits)
+- Microsoft Edge (v133.0.3065.92 Official Build 64 bits)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Using 2560 x 1440 Resolution Screen
 
-- Configure the top-level `parserOptions` property like this:
+## Features
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- Check account balance
+- Withdraw cash
+- Deposit funds
+- User authentication
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Installation
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+1. Clone the repository:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+    ```sh
+    git clone https://github.com/alejandrofloresmtz94/atm_machine.git
+    ```
+
+2. Navigate to the project directory:
+
+    ```sh
+    cd atm_machine
+    ```
+
+3. Install `pnpm` if you haven't already:
+
+    ```sh
+    npm install -g pnpm
+    ```
+
+4. Install the required dependencies:
+
+    ```sh
+    pnpm install
+    ```
+
+## Usage
+
+1. Start the application:
+
+    ```sh
+    pnpm run dev
+    ```
+
+2. Follow the on-screen instructions to interact with the ATM system.
+
+## Contributing
+
+1. Fork the repository.
+2. Create a new branch:
+
+    ```sh
+    git checkout -b feature-branch
+    ```
+
+3. Make your changes and commit them:
+
+    ```sh
+    git commit -m "Description of changes"
+    ```
+
+4. Push to the branch:
+
+    ```sh
+    git push origin feature-branch
+    ```
+
+5. Open a pull request.
+
+## License
+
+This project is licensed under the MIT License.
+
+## Author
+
+Alejandro Flores Martinez
